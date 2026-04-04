@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import api from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate()
 
     async function handleSubmit(e: React.SubmitEvent) {
         e.preventDefault()
         try {
             const res = await api.post("/auth/login", { email, password })
-            console.log(res.data)
+            localStorage.setItem("token", res.data.token)
+            navigate("/dashboard")
         } catch (error) {
             setError("Invalid credentials")
         }
