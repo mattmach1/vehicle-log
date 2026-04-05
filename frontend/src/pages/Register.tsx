@@ -1,47 +1,54 @@
 import React, { useState } from "react";
-import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import api from "../api/axios";
 
-
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+function Register() {
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
     const navigate = useNavigate()
 
     async function handleSubmit(e: React.SubmitEvent) {
         e.preventDefault()
         try {
-            const res = await api.post("/auth/login", { email, password })
-            localStorage.setItem("token", res.data.token)
-            navigate("/dashboard")
+            await api.post("/auth/register", { name, email, password })
+            navigate("/login")
         } catch (error) {
-            setError("Invalid credentials")
+            setError("Something went wrong")
         }
     }
 
     return (
         <div>
-            <h1>Login</h1>
+            <h1>Register</h1>
             {error && <p>{error}</p>}
             <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                />
                 <input
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    required
                 />
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    required
                 />
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
-            <p>Don't have an account? <a href="/register">Register</a></p>
+            <p>Already have an account? <a href="/login">Login</a></p>
         </div>
     )
 }
 
-export default Login
+export default Register
