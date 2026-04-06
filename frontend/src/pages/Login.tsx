@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Label } from "@/components/ui/label";
+import { ModeToggle } from "@/components/mode-toggle";
 
 
 function Login() {
@@ -34,11 +35,14 @@ function Login() {
 
     return (
 
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-background">
             <Card className="w-full max-w-sm">
                 <CardHeader>
                     <CardTitle>Login</CardTitle>
                     <CardDescription>Enter your email below to login to your account</CardDescription>
+                    <CardAction>
+                        <ModeToggle />
+                    </CardAction>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
