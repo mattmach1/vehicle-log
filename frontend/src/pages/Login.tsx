@@ -10,10 +10,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button"
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button"
 
 
 function Login() {
@@ -57,6 +58,7 @@ function Login() {
                                 required
                             />
                         </div>
+
                         <div className="flex flex-col gap-2">
                             <Label htmlFor="password">Password</Label>
                             <Input
@@ -68,6 +70,7 @@ function Login() {
                                 required
                             />
                         </div>
+                        
                         {error && <p className="text-sm text-destructive">{error}</p>}
                         <Button type="submit">Login</Button>
                     </form>
