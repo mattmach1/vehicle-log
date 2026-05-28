@@ -5,3 +5,8 @@ export async function fetchVehicles() {
   const res = await api.get("/vehicles")
   return res.data as Vehicle[]
 }
+
+export async function createVehicle(data: Partial<Vehicle>) {
+  const res = await api.post("/vehicles", data)
+  return res.data as Vehicle
+}
