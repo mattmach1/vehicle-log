@@ -40,7 +40,7 @@ function Login() {
             <Card className="w-full max-w-sm">
                 <CardHeader>
                     <CardTitle>Login</CardTitle>
-                    <CardDescription>Enter your email below to login to your account</CardDescription>
+                    <CardDescription>Enter your credentials below to login to your account</CardDescription>
                     <CardAction>
                         <ModeToggle />
                     </CardAction>
@@ -70,7 +70,7 @@ function Login() {
                                 required
                             />
                         </div>
-                        
+
                         {error && <p className="text-sm text-destructive">{error}</p>}
                         <Button type="submit">Login</Button>
                     </form>

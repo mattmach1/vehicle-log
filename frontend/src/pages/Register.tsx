@@ -53,7 +53,7 @@ function Register() {
                                 id="email"
                                 type="text"
                                 placeholder="Email"
-                                value={name}
+                                value={email}
                                 onChange={e => setEmail(e.target.value)}
                             />
                         </div>
@@ -75,7 +75,7 @@ function Register() {
                                 id="password"
                                 type="password"
                                 placeholder="Password"
-                                value={email}
+                                value={password}
                                 onChange={e => setPassword(e.target.value)}
                                 required
                             />
