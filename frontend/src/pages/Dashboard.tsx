@@ -54,23 +54,21 @@ function Dashboard() {
       <h1>Dashboard</h1>
       <div className="flex justify-center">
         <div className="min-h-screen flex-col w-lg justify-center bg-background">
-          <div className="flex justify-between">
-            <div>Vehicles</div>
+          <div className="flex justify-between mb-4">
+            <div className="flex justify-between items-center text-2xl font-semibold">Vehicles</div>
             <Button onClick={() => setOpen(true)}>Add Vehicle</Button>
           </div>
           <div>
             {vehicles?.length === 0 && <p>No vehicles yet</p>}
-            {vehicles?.length !== 0 && (
-              <Card className="w-full max-w-sm">
+            {vehicles?.map(vehicle => (
+              <Card key={vehicle.id} className="w-full max-w-lg">
                 <CardContent>
-                  {vehicles?.map(vehicle => (
-                    <div key={vehicle.id} onClick={() => navigate(`/vehicles/${vehicle.id}`)}>
+                    <div onClick={() => navigate(`/vehicles/${vehicle.id}`)}>
                       <p>{vehicle.year} {vehicle.make} {vehicle.model}</p>
                     </div>
-                  ))}
                 </CardContent>
               </Card>
-            )}
+            ))}
           </div>
         </div>
       </div>
