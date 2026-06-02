@@ -10,3 +10,8 @@ export async function createVehicle(data: Partial<Vehicle>) {
   const res = await api.post("/vehicles", data)
   return res.data as Vehicle
 }
+
+export async function fetchVehicle(id: string): Promise<Vehicle> {
+  const res = await api.get(`/vehicles/${id}`)
+  return res.data
+}
