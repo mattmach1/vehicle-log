@@ -56,15 +56,15 @@ function Dashboard() {
         <div className="min-h-screen flex-col w-lg justify-center bg-background">
           <div className="flex justify-between mb-4">
             <div className="flex justify-between items-center text-2xl font-semibold">Vehicles</div>
-            <Button onClick={() => setOpen(true)}>Add Vehicle</Button>
+            <Button onClick={() => setOpen(true)} className="transition-all cursor-pointer hover:shadow-md hover:shadow-primary/25 hover:scale-[1.02] hover:bg-primary/80" >Add Vehicle</Button>
           </div>
-          <div>
+          <div className="flex flex-col gap-3">
             {vehicles?.length === 0 && <p>No vehicles yet</p>}
             {vehicles?.map(vehicle => (
-              <Card key={vehicle.id} className="w-full max-w-lg">
-                <CardContent>
+              <Card key={vehicle.id} className="w-full max-w-lg cursor-pointer transition-all hover:shadow-md hover:shadow-primary/25 hover:border-primary/50 hover:scale-[1.02]">
+                <CardContent className="py-4">
                     <div onClick={() => navigate(`/vehicles/${vehicle.id}`)}>
-                      <p>{vehicle.year} {vehicle.make} {vehicle.model}</p>
+                      <p className="text-lg font-semibold">{vehicle.year} {vehicle.make} {vehicle.model}</p>
                     </div>
                 </CardContent>
               </Card>
